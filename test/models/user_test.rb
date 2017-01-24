@@ -26,4 +26,8 @@ class UserTest < ActiveSupport::TestCase
     refute user.valid?
     assert_not_nil user.errors[:email]
   end
+
+  test '#flashcards' do
+    assert_equal 2, @user.flashcards.size
+  end
 end
