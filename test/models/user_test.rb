@@ -11,8 +11,8 @@ class UserTest < ActiveSupport::TestCase
 
   test 'invalid without a name' do
     @user.name = nil
-    refute @user.valid?, 'saved user without a name'
-    assert_not_nil @user.errors[:name], 'no validation error for name present'
+    refute @user.valid?
+    assert_not_nil @user.errors[:name]
   end
 
   test 'invalid without an email' do
@@ -25,5 +25,9 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(email: @user.email, name: 'Someone Else')
     refute user.valid?
     assert_not_nil user.errors[:email]
+  end
+
+  test '#flashcards' do
+    assert_equal 2, @user.flashcards.size
   end
 end
