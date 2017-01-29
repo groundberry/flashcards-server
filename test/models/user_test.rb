@@ -30,4 +30,8 @@ class UserTest < ActiveSupport::TestCase
   test '#flashcards' do
     assert_equal 2, @user.flashcards.size
   end
+
+  test '#tags' do
+    assert_equal 2, @user.tags.size
+  end
 end

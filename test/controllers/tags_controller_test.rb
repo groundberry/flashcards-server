@@ -27,6 +27,11 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show tag flashcards" do
+    get flashcards_user_tag_url(@user, @tag), as: :json
+    assert_response :success
+  end
+
   test "should update tag" do
     patch user_tag_url(@user, @tag), params: { tag: {
       name: 'Some Tag',
