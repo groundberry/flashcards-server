@@ -10,13 +10,13 @@ class FlashcardTest < ActiveSupport::TestCase
   end
 
   test 'invalid without question' do
-    flashcard = Flashcard.new(answer: 'Answer 1')
+    flashcard = Flashcard.new(user: @flashcard.user, answer: 'Answer 1')
     refute flashcard.valid?
     assert_not_nil flashcard.errors[:question]
   end
 
   test 'invalid without answer' do
-    flashcard = Flashcard.new(question: 'Question 1')
+    flashcard = Flashcard.new(user: @flashcard.user, question: 'Question 1')
     refute flashcard.valid?
     assert_not_nil flashcard.errors[:answer]
   end

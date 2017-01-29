@@ -24,6 +24,11 @@ class FlashcardsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should show flashcard tags" do
+    get tags_user_flashcard_url(@user, @flashcard), as: :json
+    assert_response :success
+  end
+
   test "should update flashcard" do
     patch user_flashcard_url(@user, @flashcard), params: { flashcard: { answer: @flashcard.answer, question: @flashcard.question, user_id: @flashcard.user_id } }, as: :json
     assert_response 200

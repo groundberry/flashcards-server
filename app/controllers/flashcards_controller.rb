@@ -1,6 +1,6 @@
 class FlashcardsController < ApplicationController
   before_action :set_user
-  before_action :set_flashcard, only: [:show, :update, :destroy]
+  before_action :set_flashcard, only: [:show, :tags, :update, :destroy]
 
   # GET /users/1/flashcards
   def index
@@ -12,6 +12,11 @@ class FlashcardsController < ApplicationController
   # GET /users/1/flashcards/1
   def show
     render json: @flashcard
+  end
+
+  # GET /users/1/flashcards/1/tags
+  def tags
+    render json: @flashcard.tags
   end
 
   # POST /users/1/flashcards
