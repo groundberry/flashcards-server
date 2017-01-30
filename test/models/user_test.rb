@@ -15,16 +15,16 @@ class UserTest < ActiveSupport::TestCase
     assert_not_nil @user.errors[:name]
   end
 
-  test 'invalid without an email' do
-    @user.email = nil
+  test 'invalid without a login' do
+    @user.login = nil
     refute @user.valid?
-    assert_not_nil @user.errors[:email]
+    assert_not_nil @user.errors[:login]
   end
 
-  test 'invalid if email already exists' do
-    user = User.new(email: @user.email, name: 'Someone Else')
+  test 'invalid if login already exists' do
+    user = User.new(login: @user.login, name: 'Someone Else')
     refute user.valid?
-    assert_not_nil user.errors[:email]
+    assert_not_nil user.errors[:login]
   end
 
   test '#flashcards' do
