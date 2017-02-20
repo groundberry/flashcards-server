@@ -1,10 +1,11 @@
+# Flashcards controller.
 class FlashcardsController < ApplicationController
-  before_action :set_user
+  before_action :authenticate_user!
   before_action :set_flashcard, only: [:show, :tags, :update, :destroy]
 
   # GET /users/1/flashcards
   def index
-    @flashcards = @user.flashcards
+    @flashcards = @current_user.flashcards
 
     render json: @flashcards
   end
@@ -24,7 +25,7 @@ class FlashcardsController < ApplicationController
     @flashcard = Flashcard.new(flashcard_params)
 
     if @flashcard.save
-      render json: @flashcard, status: :created, location: [@user, @flashcard]
+      render json: @flashcard, status: :created, location: @flashcard
     else
       render json: @flashcard.errors, status: :unprocessable_entity
     end
@@ -46,12 +47,8 @@ class FlashcardsController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
   def set_flashcard
-    @flashcard = @user.flashcards.find(params[:id])
+    @flashcard = @current_user.flashcards.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
