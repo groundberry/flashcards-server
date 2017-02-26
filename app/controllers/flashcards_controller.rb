@@ -3,24 +3,24 @@ class FlashcardsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_flashcard, only: [:show, :tags, :update, :destroy]
 
-  # GET /users/1/flashcards
+  # GET /flashcards
   def index
     @flashcards = @current_user.flashcards
 
     render json: @flashcards
   end
 
-  # GET /users/1/flashcards/1
+  # GET /flashcards/1
   def show
     render json: @flashcard
   end
 
-  # GET /users/1/flashcards/1/tags
+  # GET /flashcards/1/tags
   def tags
     render json: @flashcard.tags
   end
 
-  # POST /users/1/flashcards
+  # POST /flashcards
   def create
     @flashcard = Flashcard.new(flashcard_params)
 
@@ -31,7 +31,7 @@ class FlashcardsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1/flashcards/1
+  # PATCH/PUT /flashcards/1
   def update
     if @flashcard.update(flashcard_params)
       render json: @flashcard
@@ -40,7 +40,7 @@ class FlashcardsController < ApplicationController
     end
   end
 
-  # DELETE /users/1/flashcards/1
+  # DELETE /flashcards/1
   def destroy
     @flashcard.destroy
   end
