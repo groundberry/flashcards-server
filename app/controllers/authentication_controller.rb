@@ -1,3 +1,4 @@
+# Authentication controller.
 class AuthenticationController < ApplicationController
   def github
     authenticator = Authenticator.new
@@ -10,7 +11,10 @@ class AuthenticationController < ApplicationController
     # Generate token...
     token = TokiToki.encode(login)
     # ... create user if it doesn't exist...
-    User.where(login: login).first_or_create!(name: name, avatar_url: avatar_url)
+    User.where(login: login).first_or_create!(
+      name: name,
+      avatar_url: avatar_url
+    )
     # ... and redirect to client app.
     redirect_to "#{issuer}?token=#{token}"
   rescue StandardError => error

@@ -3,24 +3,24 @@ class TagsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_tag, only: [:show, :flashcards, :update, :destroy]
 
-  # GET /users/1/tags
+  # GET /tags
   def index
     @tags = @current_user.tags
 
     render json: @tags
   end
 
-  # GET /users/1/tags/1
+  # GET /tags/1
   def show
     render json: @tag
   end
 
-  # GET /users/1/tags/1/flashcards
+  # GET /tags/1/flashcards
   def flashcards
     render json: @tag.flashcards
   end
 
-  # POST /users/1/tags
+  # POST /tags
   def create
     @tag = Tag.new(tag_params)
 
@@ -31,7 +31,7 @@ class TagsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /users/1/tags/1
+  # PATCH/PUT /tags/1
   def update
     if @tag.update(tag_params)
       render json: @tag
@@ -40,7 +40,7 @@ class TagsController < ApplicationController
     end
   end
 
-  # DELETE /users/1/tags/1
+  # DELETE /tags/1
   def destroy
     @tag.destroy
   end
