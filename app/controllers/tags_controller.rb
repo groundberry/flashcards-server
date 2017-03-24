@@ -17,7 +17,7 @@ class TagsController < ApplicationController
 
   # GET /tags/1/flashcards
   def flashcards
-    render json: @tag.flashcards
+    render json: @tag.flashcards, include: :tags
   end
 
   # POST /tags
