@@ -20,8 +20,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
       post tags_url, params: {
         token: @token,
         tag: {
-          name: 'Some Tag',
-          user_id: @tag.user_id
+          name: 'Some Tag'
         }
       }, as: :json
     end
@@ -47,8 +46,7 @@ class TagsControllerTest < ActionDispatch::IntegrationTest
     patch tag_url(@tag), params: {
       token: @token,
       tag: {
-        name: 'Some Tag',
-        user_id: @tag.user_id
+        name: 'Some Tag'
       }
     }, as: :json
     assert_response 200

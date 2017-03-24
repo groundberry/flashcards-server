@@ -21,8 +21,7 @@ class FlashcardsControllerTest < ActionDispatch::IntegrationTest
         token: @token,
         flashcard: {
           answer: @flashcard.answer,
-          question: @flashcard.question,
-          user_id: @flashcard.user_id
+          question: @flashcard.question
         }
       }, as: :json
     end
@@ -49,8 +48,7 @@ class FlashcardsControllerTest < ActionDispatch::IntegrationTest
       token: @token,
       flashcard: {
         answer: @flashcard.answer,
-        question: @flashcard.question,
-        user_id: @flashcard.user_id
+        question: @flashcard.question
       }
     }, as: :json
     assert_response 200

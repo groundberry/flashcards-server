@@ -23,6 +23,7 @@ class TagsController < ApplicationController
   # POST /tags
   def create
     @tag = Tag.new(tag_params)
+    @tag.user = @current_user
 
     if @tag.save
       render json: @tag, status: :created, location: @tag
@@ -53,6 +54,6 @@ class TagsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def tag_params
-    params.require(:tag).permit(:user_id, :name)
+    params.require(:tag).permit(:name)
   end
 end
