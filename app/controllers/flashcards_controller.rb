@@ -7,7 +7,7 @@ class FlashcardsController < ApplicationController
   def index
     @flashcards = @current_user.flashcards
 
-    render json: @flashcards
+    render json: @flashcards, include: :tags
   end
 
   # GET /flashcards/1
