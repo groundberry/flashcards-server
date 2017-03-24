@@ -12,7 +12,7 @@ class FlashcardsController < ApplicationController
 
   # GET /flashcards/1
   def show
-    render json: @flashcard
+    render json: @flashcard, include: :tags
   end
 
   # GET /flashcards/1/tags
@@ -26,7 +26,7 @@ class FlashcardsController < ApplicationController
     @flashcard.user = @current_user
 
     if @flashcard.save
-      render json: @flashcard, status: :created, location: @flashcard
+      render json: @flashcard, include: :tags, status: :created, location: @flashcard
     else
       render json: @flashcard.errors, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class FlashcardsController < ApplicationController
   # PATCH/PUT /flashcards/1
   def update
     if @flashcard.update(flashcard_params)
-      render json: @flashcard
+      render json: @flashcard, include: :tags
     else
       render json: @flashcard.errors, status: :unprocessable_entity
     end
