@@ -54,6 +54,12 @@ class FlashcardsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def flashcard_params
-    params.require(:flashcard).permit(:question, :answer)
+    tmp_params = params.require(:flashcard).permit(:question, :answer, tags: [])
+    unless tmp_params[:tags].nil?
+      tmp_params[:tags].map! do |tag|
+        Tag.find_or_create_by!(user: @current_user, name: tag)
+      end
+    end
+    tmp_params
   end
 end
