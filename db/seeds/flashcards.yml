@@ -1,0 +1,78 @@
+- question: >
+    What are the only two values that are falsy?
+  answer: >
+    `false` and `nil`
+  tags:
+    - Ruby
+
+- question: >
+    Is everything in Ruby an object?
+  answer: >
+    No. Methods are not objects. Blocks are not objects.
+  tags:
+    - Ruby
+
+- question: >
+    What is duck typing and how does it apply to Ruby?
+  answer: >
+    That an object may be acted upon even if it isn't the expected type as long as it looks and behaves like the expected object. This is a characteristic of Ruby because the lack of type checking of parameters makes this an effective programming technique.
+  tags:
+    - Ruby
+
+- question: >
+    Is Ruby a statically typed or a dynamically typed language?
+  answer: >
+    Dynamically typed since type checking is done at runtime.
+  tags:
+    - Ruby
+
+- question: >
+    Is Ruby a strongly typed or a weakly typed language?
+  answer: >
+    Strongly typed since an object's type is checked before an operation is performed on it.
+  tags:
+    - Ruby
+
+- question: >
+    Where does scope change in a Ruby program?
+  answer: >
+    At `module`, `class`, and `def`.
+  tags:
+    - Ruby
+
+- question: >
+    What is the output of the expression `"hello"[-1]`?
+  answer: >
+    `"o"`
+  tags:
+    - Ruby
+
+- question: >
+    What does `String#chomp` do?
+  answer: >
+    Removes a line terminator.
+  tags:
+    - Ruby
+
+- question: >
+    What does `String#chop` do?
+  answer: >
+    Removes the trailing character or line terminator.
+  tags:
+    - Ruby
+
+- question: >
+    What are the differences between `null` and `undefined`?
+  answer: >
+    `undefined` means that the value of the variable is not defined. `undefined` is not a constant or a keyword. `undefined` is a type with exactly one value: `undefined`.
+
+    `null` means empty or non-existent value. `null` is a primitive value, and you can assign `null` to any variable. `null` is not an object, even though `typeof null` returns `"object"`.
+  tags:
+    - JavaScript
+
+- question: >
+    What are the differences between `==` and `===`?
+  answer: >
+    `==` will not check types and `===` will check whether both sides are of same type.
+  tags:
+    - JavaScript
