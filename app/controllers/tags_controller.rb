@@ -49,7 +49,7 @@ class TagsController < ApplicationController
   private
 
   def set_tag
-    @tag = Tag.find(params[:id])
+    @tag = @current_user.tags.find(params[:id])
   end
 
   # Only allow a trusted parameter "white list" through.
