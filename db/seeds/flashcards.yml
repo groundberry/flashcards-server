@@ -76,3 +76,23 @@
     `==` will not check types and `===` will check whether both sides are of same type.
   tags:
     - JavaScript
+
+- question: >
+    Reverse an array in place.
+  answer: >
+    ```js
+    function reverseArrayInPlace(arr) {
+      var i1 = arr[0];
+      var i2 = arr[arr.length - 1];
+      while (i1 <= i2) {
+        var temp = arr[i1];
+        arr[i1] = arr[i2];
+        arr[i2] = temp;
+        i1++;
+        i2--;
+      }
+      return arr;
+    }
+    ```
+  tags:
+    - JavaScript
