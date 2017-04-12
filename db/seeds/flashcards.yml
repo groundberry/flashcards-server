@@ -81,6 +81,7 @@
     Reverse an array in place.
   answer: >
     ```js
+
     function reverseArrayInPlace(arr) {
       var i1 = arr[0];
       var i2 = arr[arr.length - 1];
@@ -93,6 +94,7 @@
       }
       return arr;
     }
+
     ```
   tags:
     - JavaScript
